@@ -41,7 +41,7 @@
 		<a href="logout.php" class="btn btn-danger">Logout</a></p>
 	</div>
 	<div>
-		<img src=http://192.168.0.18:8081/ border=0></a>
+		<img src=/simpleusers/video.php border=0></a>
 	</div>
 </body>
 </html>
