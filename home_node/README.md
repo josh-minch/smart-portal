@@ -1,6 +1,6 @@
 # Home Node
 
-###Install motion package
+### Install motion package
 ```
 sudo apt-get install -y motion
 ```
@@ -25,12 +25,12 @@ motion
 ```
 On a web brwoser to http://localhost:8081 or http://[ip address]:8081 to check that the setup works.
 
-###Install Lighttpd with PHP 7 and MySQL
+### Install Lighttpd with PHP 7 and MySQL
 (work in progress)
 Follow the instructions at the following site to get a web server running
 https://www.howtoforge.com/tutorial/installing-lighttpd-with-php7-php-fpm-and-mysql-on-ubuntu-16.04-lts/
 
-###Install web portal
+### Install web portal
 Clone the repository and enter into the directory
 ```
 git clone https://github.com/96boards-projects/smart-portal.git
@@ -55,7 +55,7 @@ server.document-root	= "/var/www/html"
 index-file.names		= ( "login.php", "index.html" )
 ```
 
-###Work in Progress
+### Work in Progress
 - proxy
 - openssl
 - ddclient
