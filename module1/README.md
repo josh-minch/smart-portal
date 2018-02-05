@@ -27,6 +27,8 @@ ninja flash
 ```
 
 For more detailed instructions see 
+
+## Referenced guides
 http://docs.zephyrproject.org/getting_started/getting_started.html#building-and-running-an-application
 http://docs.zephyrproject.org/boards/arm/96b_carbon/doc/96b_carbon.html
 

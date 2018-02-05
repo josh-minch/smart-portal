@@ -1,1 +1,3 @@
-folder for module2
+# Laser Play Module
+
+## Controlling a Servo on the Carbon
