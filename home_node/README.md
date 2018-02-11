@@ -1,61 +1,40 @@
 # Home Node
 
-### Install motion package
+### Index
++ [Prerequisites](#prerequistes)
++ [Auto-Installation](#auto-installation)
++ [Installation](#installation)
+
+### Prerequisites <a name="prerequistes"></a>
+The Dragonboard must be flashed with a Linux operating system.
+Note: This project is only tested with the default Debian image provided by 96boards.
+
+### Auto-Installation <a name="auto-installation"></a>
+Download the install script
 ```
-sudo apt-get install -y motion
+wget https://https://github.com/96boards-projects/smart-portal/tree/master/home_node/_install/install.sh
 ```
 
-Edit `/etc/default/motion` and set "start_motion_daemon = yes" to allow motion to run in the background.
-
-Edit `/etc/motion/motion.conf` and set the following:
-set "daemon on"
-set "width 640"
-set "height 480"
-set "framerate 10"
-set "output_pictures off"
-set "ffmpeg_output_movies off"
-set "stream_port 8081"
-set "webcontrol_port 8080"
-set "stream_maxrate 10"
-set "stream_localhost off"
-
-Attached the webcam. Start motion.
+Make it executable
 ```
-motion
-```
-On a web brwoser to http://localhost:8081 or http://[ip address]:8081 to check that the setup works.
-
-### Install Lighttpd with PHP 7 and MySQL
-(work in progress)
-Follow the instructions at the following site to get a web server running
-https://www.howtoforge.com/tutorial/installing-lighttpd-with-php7-php-fpm-and-mysql-on-ubuntu-16.04-lts/
-
-### Install web portal
-Clone the repository and enter into the directory
-```
-git clone https://github.com/96boards-projects/smart-portal.git
-cd smart-portal
+chmod +x install.sh
 ```
 
-Run the mysql script to create tables and data required by the portal.
+Run it with root privileges.
 ```
-mysql -u root -p <./var/www/html/simpleusers/tables.sql
-```
-
-Copy the php files over to the document root of the web server and change the ownership to www-data.
-```
-sudo cp -r ./var/www/* /var/www/
-sudo chmod 554 -r /var/www/html
-sudo chown www-data:www-data -r /var/www/html
+sudo bash ./install.sh
 ```
 
-Edit `/etc/lighttpd/lighttpd.conf' set the following:
-```
-server.document-root	= "/var/www/html"
-index-file.names		= ( "login.php", "index.html" )
-```
+### Installation <a name="installation"></a>
+1. Install motion package. Edit its configuration file `/etc/default/motion` and `/etc/motion/motion.conf`. Note: The portal assumes motion stream port is 8081. Attach the webcam and check that motion works
+2. Clone the repository into `/var/www/{folder}`
+3. Install MySQL. Execute SQL statements from the `./home_node/_install` folder to setup database tables and user.
+4. Install Apache and PHP. Configure Apache.
+5. Edit crontab to start motion with root privileges.
+
 
 ### Work in Progress
-- proxy
-- openssl
-- ddclient
+- openssl (to provide encrption)
+- ddclient (to provide DDNS)
+- sensor (temperature sensor on home_node)
+- BLE Mesh (script to obtain data from the BLE mesh network)

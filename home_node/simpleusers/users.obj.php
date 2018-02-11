@@ -66,7 +66,7 @@
 		}
 
 		/**
-		* Pairs up username and password as registrered in the database.
+		* Pairs up username and password as registered in the database.
 		* If the username and password is correct, it will return (int)user id of
 		* the user which credentials has been passed and set the session, for
 		*	use by the user validating.
@@ -98,130 +98,11 @@
 			return $userId;
 		}
 
-		/**
-		* Sets an information pair, consisting of a key name and that keys value.
-		* The information can be retrieved with this objects getInfo() method.
-		*
-		* @param	key	The name of the key
-		* @param	value	The keys value
-		* @param	userId	Can be used if administrative control is needed
-		* @return	This returns (bool)true or false.
-		*/
-
-		public function setInfo( $key, $value, $userId = null)
-		{
-			if($userId == null)
-			{
-				if( !$this->logged_in )
-					return false;
-			}
-
-				$reservedKeys = array("userId", "uUsername", "uActivity", "uCreated", "uLevel");
-				if( in_array($key, $reservedKeys) )
-					throw new Exception("User information key \"".$key."\" is reserved for internal use!");
-
-			if( $userId == null )
-				$userId = $_SESSION[$this->sessionName]["userId"];
-
-			if( $this->getInfo($key, $userId) )
-			{
-				$sql = "UPDATE users_information SET infoValue=? WHERE infoKey=? AND userId=? LIMIT 1";
-				if( !$this->stmt = $this->mysqli->prepare($sql) )
-					throw new Exception("MySQL Prepare statement failed: ".$this->mysqli->error);
-
-				$this->stmt->bind_param("ssi", $value, $key, $userId);
-				$this->stmt->execute();
-			}
-			else
-			{
-				$sql = "INSERT INTO users_information VALUES (?, ?, ?)";
-				if( !$this->stmt = $this->mysqli->prepare($sql) )
-					throw new Exception("MySQL Prepare statement failed: ".$this->mysqli->error);
-
-				$this->stmt->bind_param("iss", $userId, $key, $value);
-				$this->stmt->execute();
-			}
-
-			return true;
-		}
-
-		/**
-		* Use this function to retrieve user information attached to a certain user
-		* that has been set by using this objects setInfo() method.
-		*
-		* @param	key	The name of the key you wan't the value from
-		*	@param	userId	Can be used if administrative control is needed
-		* @return	String with a given keys value or (bool) false if the user isn't logged in.
-		*/
-
-		public function getInfo( $key, $userId = null )
-		{
-
-			if( $userId == null )
-			{
-				if( !$this->logged_in )
-					return false;
-
-				$userId = $_SESSION[$this->sessionName]["userId"];
-			}
-
-			$sql = "SELECT infoValue FROM users_information WHERE userId=? AND infoKey=? LIMIT 1";
-			if( !$this->stmt = $this->mysqli->prepare($sql) )
-				throw new Exception("MySQL Prepare statement failed: ".$this->mysqli->error);
-
-			$this->stmt->bind_param("is", $userId, $key);
-			$this->stmt->execute();
-			$this->stmt->store_result();
-
-			if( $this->stmt->num_rows == 0)
-				return "";
-
-			$this->stmt->bind_result($value);
-			$this->stmt->fetch();
-
-			return $value;
-
-		}
-		
-		/**
-		* Use this function to permanently remove information attached to a certain user
-		* that has been set by using this objects setInfo() method.
-		*
-		* @param	key	The name of the key you wan't the value from
-		*	@param	userId	Can be used if administrative control is needed
-		* @return	(bool) true on success or (bool) false if the user isn't logged in.
-		*/
-
-		public function removeInfo( $key, $userId = null )
-		{
-
-			if( $userId == null )
-			{
-				if( !$this->logged_in )
-					return false;
-
-				$userId = $_SESSION[$this->sessionName]["userId"];
-			}
-
-			$sql = "DELETE FROM users_information WHERE userId=? AND infoKey=? LIMIT 1";
-			if( !$this->stmt = $this->mysqli->prepare($sql) )
-				throw new Exception("MySQL Prepare statement failed: ".$this->mysqli->error);
-
-			$this->stmt->bind_param("is", $userId, $key);
-			$this->stmt->execute();
-
-			if( $this->stmt->affected_rows > 0)
-				return true;
-
-			return false;
-		}				
-
 
 		/**
 		* Use this function to retrieve all user information attached to a certain user
-		* that has been set by using this objects setInfo() method into an array.
 		*
-		*	@param	userId	Can be used if administrative control is needed
+		* @param	userId	Can be used if administrative control is needed
 		* @return	An associative array with all stored information
 		*/
 
@@ -229,28 +110,9 @@
 		{
 			if( $userId == null )
 				$userId = $_SESSION[$this->sessionName]["userId"];
-
-			$sql = "SELECT infoKey, infoValue FROM users_information WHERE userId=? ORDER BY infoKey ASC";
-			if( !$this->stmt = $this->mysqli->prepare($sql) )
-				throw new Exception("MySQL Prepare statement failed: ".$this->mysqli->error);
-
-			$this->stmt->bind_param("i", $userId);
-			$this->stmt->execute();
-			$this->stmt->store_result();
-
-			$userInfo = array();
-			if( $this->stmt->num_rows > 0)
-			{
-				$this->stmt->bind_result($key, $value);
-				while( $this->stmt->fetch() )
-					$userInfo[$key] = $value;
-			}
-			
-			$user = $this->getSingleUser($userId);
-			$userInfo = array_merge($userInfo, $user);
-			asort($userInfo);
-
-			return $userInfo;
+;
+			asort ($user);
+			return $user;
 		}
 
 		/**
@@ -376,13 +238,6 @@
 		public function deleteUser( $userId )
 		{
 			$sql = "DELETE FROM users WHERE userId=?";
-			if( !$this->stmt = $this->mysqli->prepare($sql) )
-				throw new Exception("MySQL Prepare statement failed: ".$this->mysqli->error);
-
-			$this->stmt->bind_param("i", $userId);
-			$this->stmt->execute();
-
-			$sql = "DELETE FROM users_information WHERE userId=?";
 			if( !$this->stmt = $this->mysqli->prepare($sql) )
 				throw new Exception("MySQL Prepare statement failed: ".$this->mysqli->error);
 
