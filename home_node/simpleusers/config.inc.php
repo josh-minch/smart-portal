@@ -9,7 +9,7 @@
 
 	$GLOBALS["mysql_hostname"] = "localhost";
 	$GLOBALS["mysql_username"] = "portal";
-	$GLOBALS["mysql_password"] = "password";
+	$GLOBALS["mysql_password"] = "portal";
 	$GLOBALS["mysql_database"] = "portal";
 
 
