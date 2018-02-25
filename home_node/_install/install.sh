@@ -56,10 +56,51 @@ service apache2 restart
 chmod 750 -r ./var/www/portal
 chown -R www-data -r ./var/www/portal
 
+# create gpio group and add userspace
+groupadd gpio 
+usermod -a -G gpio www-data
+usermod -a -G gpio linaro
+
+# remove exit 0 from rc.local
+sed -i "/exit 0/d " /etc/rc.local
+
+# Inserting command to take place after boot into rc.local
+
+new_boot=$(cat <<EOF
+# Export GPIO to userspace
+echo "115" > /sys/class/gpio/export
+echo "24" > /sys/class/gpio/export
+echo "35" > /sys/class/gpio/export
+echo "28" > /sys/class/gpio/export
+echo "34" > /sys/class/gpio/export
+echo "33" > /sys/class/gpio/export
+
+# Set GPIO direction
+echo "out" > /sys/class/gpio/gpio115/direction
+echo "out" > /sys/class/gpio/gpio24/direction
+echo "out" > /sys/class/gpio/gpio35/direction
+echo "out" > /sys/class/gpio/gpio28/direction
+echo "out" > /sys/class/gpio/gpio34/direction
+echo "out" > /sys/class/gpio/gpio33/direction
+
+# Give permissions to group gpio
+chown -R root:gpio /sys/class/gpio
+chmod -R 770 /sys/class/gpio
+chown -R root:gpio /sys/devices/platform/soc/1000000.pinctrl/gpio*
+chmod -R 770 /sys/devices/platform/soc/1000000.pinctrl/gpio*
+
+# start motion
+motion &
+exit 0
+EOF
+)
+
+echo "${new_boot}" >> /etc/rc.local
+
 # clean up
 rm -r /var/www/portal/_install
 
-# to include crontab to start motion @reboot
+
 
 
 
