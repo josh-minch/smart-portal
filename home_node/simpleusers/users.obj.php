@@ -40,6 +40,20 @@
 			$this->_updateActivity();
 		}
 
+		// Command to script
+		public function script($type, $move)
+		{
+			$out = NULL;
+			$status = NULL;
+			
+			// exec('output.sh $type $move' $out $status);
+			if( $out == NULL)
+				$output = NULL;
+			
+			$output = $type.$move;
+			return $output;
+		}
+		
 		/**
 		* Returns a (int)user id, if the user was created succesfully.
 		* If not, it returns (bool)false.
@@ -110,7 +124,7 @@
 		{
 			if( $userId == null )
 				$userId = $_SESSION[$this->sessionName]["userId"];
-;
+			$user = $this->getSingleUser($userId);
 			asort ($user);
 			return $user;
 		}
