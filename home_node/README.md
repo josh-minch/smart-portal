@@ -4,6 +4,7 @@
 + [Prerequisites](#prerequistes)
 + [Auto-Installation](#auto-installation)
 + [Installation](#installation)
++ [Links](#links)
 
 ### Prerequisites <a name="prerequistes"></a>
 The Dragonboard must be flashed with a Linux operating system.
@@ -32,6 +33,9 @@ sudo bash ./install.sh
 4. Install Apache and PHP. Configure Apache.
 5. Edit crontab to start motion with root privileges.
 
+### Links <a name="links"></a>
+Dragonboard 410c Case .stl file can be found here:
+https://www.thingiverse.com/thing:1090288
 
 ### Work in Progress
 - openssl (to provide encrption)
