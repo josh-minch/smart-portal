@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout portal.key -out portal.crt
-mv ece191.key /etc/ssl/private/portal.key
-mv ece191.crt /etc/ssl/private/portal.crt
+mv portal.key /etc/ssl/private/portal.key
+mv portal.crt /etc/ssl/private/portal.crt
 
 mkdir /var/www/
 mkdir /var/www/portal
