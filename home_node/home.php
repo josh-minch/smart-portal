@@ -28,24 +28,28 @@
 //	fclose($file);
 
 	// Send POST command to script
-	if(isset($_POST['laser'])){
-		$message = $SimpleUsers->script('lase', NULL);
-    }
-	if(isset($_POST['buzzer'])){
-		$message = $SimpleUsers->script('buz', NULL);
-    }	
-	if(isset($_POST['up'])){
-		$message = $SimpleUsers->script('y_servo', '5');
-    }
-	if(isset($_POST['down'])){
-		$message = $SimpleUsers->script('y_servo', '-5');
-    }
+
 	if(isset($_POST['left'])){
-		$message = $SimpleUsers->script('x_servo', '5');
+		exec('simpleusers/output.sh xpos');
     }
 	if(isset($_POST['right'])){
-		$message = $SimpleUsers->script('x_servo', '-5');
+		exec('simpleusers/output.sh xneg');
     }	
+	if(isset($_POST['up'])){
+		exec('simpleusers/output.sh ypos');
+    }
+	if(isset($_POST['down'])){
+		exec('simpleusers/output.sh yneg');
+	}
+	if(isset($_POST['reset'])){
+		exec('simpleusers/output.sh reset');
+    }
+	if(isset($_POST['buzzer'])){
+		exec('simpleusers/output.sh buzz');
+    }
+	if(isset($_POST['laser'])){
+		exec('simpleusers/output.sh lase');
+    }
 	
 ?>
 <!DOCTYPE html>
@@ -61,7 +65,6 @@
 <body>
 	<div>
 		<p><a href="home.php" class="btn btn-default">Home</a>
-		<a href="modules.php" class="btn btn-primary">Modules</a> 
 		<a href="users.php" class="btn btn-primary">Users (admin only)</a>
 		<a href="logout.php" class="btn btn-danger">Logout</a></p>
 	</div>
@@ -77,6 +80,7 @@
 			<input type="submit" name="down" value="Down" />
 			<input type="submit" name="left" value="Left" />
 			<input type="submit" name="right" value="Right" />
+			<input type="submit" name="reset" value="Reset Position" />
 			<br>
 			<?php if(isset($message)){ echo $message;}?> 
 			<br>
