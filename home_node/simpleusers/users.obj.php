@@ -39,7 +39,7 @@
 			$this->_populateUserdata();
 			$this->_updateActivity();
 		}
-
+		
 		/**
 		* Returns a (int)user id, if the user was created succesfully.
 		* If not, it returns (bool)false.
@@ -110,7 +110,7 @@
 		{
 			if( $userId == null )
 				$userId = $_SESSION[$this->sessionName]["userId"];
-;
+			$user = $this->getSingleUser($userId);
 			asort ($user);
 			return $user;
 		}
