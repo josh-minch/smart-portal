@@ -57,7 +57,7 @@ static void temp_srv_status(struct bt_mesh_model *model,
 	/* sensor status */
         bt_mesh_model_msg_init(msg, BT_MESH_MODEL_OP_SENSOR_STATUS);
 	/* id: termperature in celsius */
-	net_buf_simple_add_le16(msg, ID_TEMP_CELSIUS);
+	//net_buf_simple_add_le16(msg, ID_TEMP_CELSIUS);
 	/* raw temperature value in celsius */
 	net_buf_simple_add_le16(msg, 22);
 

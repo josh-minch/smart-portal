@@ -48,9 +48,9 @@ static void temp_cli_status(struct bt_mesh_model *model,
                                struct bt_mesh_msg_ctx *ctx,
                                struct net_buf_simple *buf)
 {
-	printk("Got the sensor status \n");
-	printk("Sensor ID: 0x%04x\n", net_buf_simple_pull_le16(buf));
-	printk("Sensor value: 0x%04x\n\n", net_buf_simple_pull_le16(buf));
+	//printk("Got the sensor status \n");
+	//printk("Sensor ID: 0x%04x\n", net_buf_simple_pull_le16(buf));
+	printk("0x%04x\n\n", net_buf_simple_pull_le16(buf));
 }
 
 /* Sensor client model Opcode */
@@ -155,7 +155,7 @@ void temp_work_thread(struct k_work *work)
 		return;
 	}
  
-        printk("Sensor status Get request sent with OpCode 0x%08x\n", BT_MESH_MODEL_OP_SENSOR_GET);
+        //printk("Sensor status Get request sent with OpCode 0x%08x\n", BT_MESH_MODEL_OP_SENSOR_GET);
 }
 
 void main(void)

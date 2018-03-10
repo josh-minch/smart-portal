@@ -5,12 +5,15 @@ ser = serial.Serial('/dev/ttyUSB0', 115200)
 
 # get data
 data = ser.readline()
-data = data.split(',')[1]
 
 # convert to decimal
-data = str(int(data, 16))
+data = int(data, 16)
+
+# convert celsius to fahrenheit
+data = 9.0/5.0 * data + 32
 
 # store
+data = str(data_f)
 f = open('temp_data', 'w')
 f.write(data)
 
