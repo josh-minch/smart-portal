@@ -14,14 +14,11 @@
 #define CID_INTEL			0x0002
 #define ID_TEMP_CELSIUS			0x2A1F
 
-#define BT_MESH_MODEL_OP_GEN_ONOFF_STATUS	BT_MESH_MODEL_OP_2(0x82, 0x04)
-#define BT_MESH_MODEL_OP_SENSOR_STATUS		BT_MESH_MODEL_OP_1(0x52)
-#define BT_MESH_MODEL_OP_SENSOR_GET		BT_MESH_MODEL_OP_2(0x82, 0x31)
+#define BT_MESH_MODEL_OP_SENSOR_STATUS	BT_MESH_MODEL_OP_1(0x52)
+#define BT_MESH_MODEL_OP_SENSOR_GET	BT_MESH_MODEL_OP_2(0x82, 0x31)
 
 static struct k_work temp_work;
 static struct k_timer temp_timer;
-
-static u8_t btn_status = 0;
 
 static u16_t node_addr;
 
@@ -41,10 +38,6 @@ static struct bt_mesh_model_pub temp_cli_pub = {
 	.msg = NET_BUF_SIMPLE(2),
 };
 
-static struct bt_mesh_model_pub gen_cli_pub = {
-	.msg = NET_BUF_SIMPLE(2),
-};
-
 static void temp_cli_get(struct bt_mesh_model *model,
                                struct bt_mesh_msg_ctx *ctx,
                                struct net_buf_simple *buf)
@@ -55,28 +48,9 @@ static void temp_cli_status(struct bt_mesh_model *model,
                                struct bt_mesh_msg_ctx *ctx,
                                struct net_buf_simple *buf)
 {
-	u16_t temp, temp_id, co2, co2_id;
-	u8_t node_id;
-	
-	temp_id = net_buf_simple_pull_le16(buf);
-	temp = net_buf_simple_pull_le16(buf);
-	co2_id = net_buf_simple_pull_le16(buf);
-	co2 = net_buf_simple_pull_le16(buf);
-	node_id = net_buf_simple_pull_u8(buf);
-
-	if (btn_status) {
-		printk("%d,%d,%d,%d\n", node_id, temp, co2, btn_status);
-		btn_status = 0;
-	} else {
-		printk("%d,%d,%d,%d\n", node_id, temp, co2, btn_status);
-	}
-}
-
-static void gen_cli_status(struct bt_mesh_model *model,
-                               struct bt_mesh_msg_ctx *ctx,
-                               struct net_buf_simple *buf)
-{
-	btn_status = 1;
+	printk("Got the sensor status \n");
+	printk("Sensor ID: 0x%04x\n", net_buf_simple_pull_le16(buf));
+	printk("Sensor value: 0x%04x\n\n", net_buf_simple_pull_le16(buf));
 }
 
 /* Sensor client model Opcode */
@@ -87,21 +61,12 @@ static const struct bt_mesh_model_op temp_cli_op[] = {
         BT_MESH_MODEL_OP_END,
 };
 
-/* Generic client model Opcode */
-static const struct bt_mesh_model_op gen_cli_op[] = {
-	/* Opcode, message length, message handler */
-        { BT_MESH_MODEL_OP_GEN_ONOFF_STATUS, 1, gen_cli_status },
-        BT_MESH_MODEL_OP_END,
-};
-
 static struct bt_mesh_model root_models[] = {
         /* Mandatory Configuration Server model. Should be the first model
          * of root element */
         BT_MESH_MODEL_CFG_SRV(&cfg_srv),
         BT_MESH_MODEL(BT_MESH_MODEL_ID_SENSOR_CLI, temp_cli_op,
                       &temp_cli_pub, NULL),
-        BT_MESH_MODEL(BT_MESH_MODEL_ID_GEN_ONOFF_CLI, gen_cli_op,
-                      &gen_cli_pub, NULL),
 };
 
 static struct bt_mesh_elem elements[] = {
@@ -162,7 +127,7 @@ static void bt_ready(int err)
 
 	bt_mesh_prov_enable(BT_MESH_PROV_GATT | BT_MESH_PROV_ADV);
 	
-        printk("Mesh initialized\n");
+        printk("Client node initialized\n");
 }
 
 static void temp_timer_thread(struct k_timer *work)
@@ -170,7 +135,7 @@ static void temp_timer_thread(struct k_timer *work)
 	k_work_submit(&temp_work);
 }
 
-/* send unsolicited request to get sensor readings */
+/* send unsolicited temperature readings */
 void temp_work_thread(struct k_work *work)
 {
 	struct bt_mesh_model *model = &root_models[1];
@@ -189,6 +154,8 @@ void temp_work_thread(struct k_work *work)
 		printk("ERR: Unable to send sensor status get request: %d\n", ret);
 		return;
 	}
+ 
+        printk("Sensor status Get request sent with OpCode 0x%08x\n", BT_MESH_MODEL_OP_SENSOR_GET);
 }
 
 void main(void)
@@ -209,6 +176,7 @@ void main(void)
                 printk("Bluetooth init failed (err %d)\n", ret);
         }
 
-	/* Start the timer at 5 seconds interval */
+	/* Start the timer at 5 second interval */
 	k_timer_start(&temp_timer, K_SECONDS(50), K_SECONDS(5));
 }
+
