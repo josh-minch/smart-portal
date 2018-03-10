@@ -13,7 +13,7 @@ data = int(data, 16)
 data = 9.0/5.0 * data + 32
 
 # store
-data = str(data_f)
+data = str(data)
 f = open('temp_data', 'w')
 f.write(data)
 
