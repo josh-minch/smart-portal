@@ -108,7 +108,7 @@ In a second terminal provision the board with `meshctl`'s command line interface
 cd bluez/mesh
 meshctl
 ```
-In meshctl:
+In `meshctl`:
 ```
 discover-unprovisioned on
 provision dddd
@@ -133,12 +133,12 @@ Plug your micro-USB into the UART port and look at serial output
 ```
 sudo minicom -D /dev/ttyUSB1
 ```
-In a second terminal provision the board in meshctl's command line interface
+In a second terminal provision the board in `meshctl`'s command line interface
 ```
 cd bluez/mesh
 meshctl
 ```
-In meshctl:
+In `meshctl`:
 ```
 discover-unprovisioned on
 provision dddd
