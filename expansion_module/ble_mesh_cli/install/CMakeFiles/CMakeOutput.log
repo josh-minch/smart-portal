@@ -1,0 +1,249 @@
+The target system is: Generic -  - arm
+The host system is: Linux - 4.13.0-36-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/bin/arm-zephyr-eabi/arm-zephyr-eabi-gcc 
+Build flags: 
+Id flags: -c 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+
+The C compiler identification is GNU, found in "/home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/3.9.1/CompilerIdC/CMakeCCompilerId.o"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/bin/arm-zephyr-eabi/arm-zephyr-eabi-g++ 
+Build flags: 
+Id flags: -c 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
+
+The CXX compiler identification is GNU, found in "/home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/3.9.1/CompilerIdCXX/CMakeCXXCompilerId.o"
+
+Performing C SOURCE FILE Test toolchain_is_ok succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_2b7e9"
+[1/2] Building C object CMakeFiles/cmTC_2b7e9.dir/src.c.obj
+[2/2] Linking C executable cmTC_2b7e9
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_nostartfiles succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_4b6cb"
+[1/2] Building C object CMakeFiles/cmTC_4b6cb.dir/src.c.obj
+[2/2] Linking C executable cmTC_4b6cb
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_nodefaultlibs succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_f5257"
+[1/2] Building C object CMakeFiles/cmTC_f5257.dir/src.c.obj
+[2/2] Linking C executable cmTC_f5257
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_nostdlib succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_98c38"
+[1/2] Building C object CMakeFiles/cmTC_98c38.dir/src.c.obj
+[2/2] Linking C executable cmTC_98c38
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_static succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_5e5dd"
+[1/2] Building C object CMakeFiles/cmTC_5e5dd.dir/src.c.obj
+[2/2] Linking C executable cmTC_5e5dd
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_no_pie succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_d6816"
+[1/2] Building C object CMakeFiles/cmTC_d6816.dir/src.c.obj
+[2/2] Linking C executable cmTC_d6816
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_fno_asynchronous_unwind_tables_C succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_536bc"
+[1/2] Building C object CMakeFiles/cmTC_536bc.dir/src.c.obj
+[2/2] Linking C executable cmTC_536bc
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_fno_pie_C succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_babef"
+[1/2] Building C object CMakeFiles/cmTC_babef.dir/src.c.obj
+[2/2] Linking C executable cmTC_babef
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_fno_pic_C succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_e46b3"
+[1/2] Building C object CMakeFiles/cmTC_e46b3.dir/src.c.obj
+[2/2] Linking C executable cmTC_e46b3
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_fno_strict_overflow_C succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_f38a5"
+[1/2] Building C object CMakeFiles/cmTC_f38a5.dir/src.c.obj
+[2/2] Linking C executable cmTC_f38a5
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Wno_pointer_sign_C succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_6e388"
+[1/2] Building C object CMakeFiles/cmTC_6e388.dir/src.c.obj
+[2/2] Linking C executable cmTC_6e388
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Wno_unused_but_set_variable_C succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_e1d1d"
+[1/2] Building C object CMakeFiles/cmTC_e1d1d.dir/src.c.obj
+[2/2] Linking C executable cmTC_e1d1d
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_fno_reorder_functions_C succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_ffb7d"
+[1/2] Building C object CMakeFiles/cmTC_ffb7d.dir/src.c.obj
+[2/2] Linking C executable cmTC_ffb7d
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_fno_defer_pop_C succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_ef4fe"
+[1/2] Building C object CMakeFiles/cmTC_ef4fe.dir/src.c.obj
+[2/2] Linking C executable cmTC_ef4fe
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Werror_implicit_int_C succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_fb299"
+[1/2] Building C object CMakeFiles/cmTC_fb299.dir/src.c.obj
+[2/2] Linking C executable cmTC_fb299
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Wl__X succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_0207f"
+[1/2] Building C object CMakeFiles/cmTC_0207f.dir/src.c.obj
+[2/2] Linking C executable cmTC_0207f
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Wl__N succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_214c3"
+[1/2] Building C object CMakeFiles/cmTC_214c3.dir/src.c.obj
+[2/2] Linking C executable cmTC_214c3
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Wl___gc_sections succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_a53dd"
+[1/2] Building C object CMakeFiles/cmTC_a53dd.dir/src.c.obj
+[2/2] Linking C executable cmTC_a53dd
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Wl___build_id_none succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_2da83"
+[1/2] Building C object CMakeFiles/cmTC_2da83.dir/src.c.obj
+[2/2] Linking C executable cmTC_2da83
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_ffunction_sections_C succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_1e283"
+[1/2] Building C object CMakeFiles/cmTC_1e283.dir/src.c.obj
+[2/2] Linking C executable cmTC_1e283
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_fdata_sections_C succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_a8784"
+[1/2] Building C object CMakeFiles/cmTC_a8784.dir/src.c.obj
+[2/2] Linking C executable cmTC_a8784
+/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Wl___print_memory_usage succeeded with the following output:
+Change Dir: /home/josh/smart-portal/module1/ble_mesh_cli/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_bbb08"
+[1/2] Building C object CMakeFiles/cmTC_bbb08.dir/src.c.obj
+[2/2] Linking C executable cmTC_bbb08
+Memory region         Used Size  Region Size  %age Used/opt/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-zephyr-eabi/gcc/arm-zephyr-eabi/6.2.0/real-ld: warning: cannot find entry symbol _start; defaulting to 0000000000008024
+
+
+Source file was:
+int main(void) { return 0; }
