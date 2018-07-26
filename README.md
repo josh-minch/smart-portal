@@ -1,6 +1,6 @@
 # Smart Portal using 96Boards
 
-Communicate, feed, and play with your pet while away from home. 
+Monitor and play with your pet while away from home. 
 
 ## Table of Contents
 - [1) Hardware](#1-hardware)
